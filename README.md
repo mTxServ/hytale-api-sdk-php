@@ -45,15 +45,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\ArticlesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$featured_only = true; // bool | 
+$apiInstance = new Swagger\Client\Api\ArticlesApi();
 
 try {
-    $result = $apiInstance->getArticles($featured_only);
+    $result = $apiInstance->getArticles();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ArticlesApi->getArticles: ', $e->getMessage(), PHP_EOL;
