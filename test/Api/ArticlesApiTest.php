@@ -28,8 +28,10 @@
 
 namespace Swagger\Client;
 
+use Swagger\Client\Api\ArticlesApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
+use Swagger\Client\Model\Article;
 use \Swagger\Client\ObjectSerializer;
 
 /**
@@ -79,6 +81,10 @@ class ArticlesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetArticleBySlug()
     {
+        $apiInstance = new ArticlesApi();
+        $result = $apiInstance->getArticleBySlug('creating-creature-sounds-for-hytale');
+        $this->assertInstanceOf(Article::class, $result);
+        $this->assertEquals('Creating creature sounds for Hytale', $result->getTitle());
     }
 
     /**
@@ -89,6 +95,11 @@ class ArticlesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetArticles()
     {
+        $apiInstance = new ArticlesApi();
+        $result = $apiInstance->getArticles();
+        $this->assertInternalType('array',  $result);
+        $this->assertGreaterThanOrEqual(20, \count($result));
+        $this->assertInstanceOf(Article::class, current($result));
     }
 
     /**
@@ -99,5 +110,10 @@ class ArticlesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetArticlesOfMonthAndYear()
     {
+        $apiInstance = new ArticlesApi();
+        $result = $apiInstance->getArticlesOfMonthAndYear(2019, 01);
+        $this->assertInternalType('array',  $result);
+        $this->assertCount(4, $result);
+        $this->assertInstanceOf(Article::class, current($result));
     }
 }

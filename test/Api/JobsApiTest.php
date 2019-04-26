@@ -28,6 +28,7 @@
 
 namespace Swagger\Client;
 
+use Swagger\Client\Api\JobsApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
@@ -79,5 +80,8 @@ class JobsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetJobs()
     {
+        $apiInstance = new JobsApi();
+        $result = $apiInstance->getJobs();
+        $this->assertInternalType('array',  $result);
     }
 }
