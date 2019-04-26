@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **blogPostArchiveYearMonthGet**
-> blogPostArchiveYearMonthGet($year, $month)
+> \Swagger\Client\Model\Articles blogPostArchiveYearMonthGet($year, $month)
 
 
 
@@ -31,7 +31,8 @@ $year = 56; // int | Year (ex: 2019)
 $month = 56; // int | Month (ex: 01)
 
 try {
-    $apiInstance->blogPostArchiveYearMonthGet($year, $month);
+    $result = $apiInstance->blogPostArchiveYearMonthGet($year, $month);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->blogPostArchiveYearMonthGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -47,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Articles**](../Model/Articles.md)
 
 ### Authorization
 
@@ -61,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **blogPostPublishedGet**
-> blogPostPublishedGet($featured_only)
+> \Swagger\Client\Model\Articles blogPostPublishedGet($featured_only)
 
 
 
@@ -80,7 +81,8 @@ $apiInstance = new Swagger\Client\Api\DefaultApi(
 $featured_only = true; // bool | 
 
 try {
-    $apiInstance->blogPostPublishedGet($featured_only);
+    $result = $apiInstance->blogPostPublishedGet($featured_only);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -95,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Articles**](../Model/Articles.md)
 
 ### Authorization
 
@@ -109,7 +111,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **blogPostSlugSlugGet**
-> blogPostSlugSlugGet($slug)
+> \Swagger\Client\Model\Article blogPostSlugSlugGet($slug)
 
 
 
@@ -128,7 +130,8 @@ $apiInstance = new Swagger\Client\Api\DefaultApi(
 $slug = "slug_example"; // string | Slug of article
 
 try {
-    $apiInstance->blogPostSlugSlugGet($slug);
+    $result = $apiInstance->blogPostSlugSlugGet($slug);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->blogPostSlugSlugGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -143,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Article**](../Model/Article.md)
 
 ### Authorization
 
@@ -157,7 +160,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **jobListingGet**
-> jobListingGet()
+> \Swagger\Client\Model\Jobs jobListingGet()
 
 
 
@@ -175,7 +178,8 @@ $apiInstance = new Swagger\Client\Api\DefaultApi(
 );
 
 try {
-    $apiInstance->jobListingGet();
+    $result = $apiInstance->jobListingGet();
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->jobListingGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -187,7 +191,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**\Swagger\Client\Model\Jobs**](../Model/Jobs.md)
 
 ### Authorization
 

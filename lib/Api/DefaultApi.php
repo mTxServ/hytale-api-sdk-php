@@ -95,11 +95,12 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\Articles
      */
     public function blogPostArchiveYearMonthGet($year, $month)
     {
-        $this->blogPostArchiveYearMonthGetWithHttpInfo($year, $month);
+        list($response) = $this->blogPostArchiveYearMonthGetWithHttpInfo($year, $month);
+        return $response;
     }
 
     /**
@@ -110,11 +111,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Articles, HTTP status code, HTTP response headers (array of strings)
      */
     public function blogPostArchiveYearMonthGetWithHttpInfo($year, $month)
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Articles';
         $request = $this->blogPostArchiveYearMonthGetRequest($year, $month);
 
         try {
@@ -145,10 +146,32 @@ class DefaultApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\Articles',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -188,14 +211,28 @@ class DefaultApi
      */
     public function blogPostArchiveYearMonthGetAsyncWithHttpInfo($year, $month)
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Articles';
         $request = $this->blogPostArchiveYearMonthGetRequest($year, $month);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -345,11 +382,12 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\Articles
      */
     public function blogPostPublishedGet($featured_only = null)
     {
-        $this->blogPostPublishedGetWithHttpInfo($featured_only);
+        list($response) = $this->blogPostPublishedGetWithHttpInfo($featured_only);
+        return $response;
     }
 
     /**
@@ -359,11 +397,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Articles, HTTP status code, HTTP response headers (array of strings)
      */
     public function blogPostPublishedGetWithHttpInfo($featured_only = null)
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Articles';
         $request = $this->blogPostPublishedGetRequest($featured_only);
 
         try {
@@ -394,10 +432,32 @@ class DefaultApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\Articles',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -435,14 +495,28 @@ class DefaultApi
      */
     public function blogPostPublishedGetAsyncWithHttpInfo($featured_only = null)
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Articles';
         $request = $this->blogPostPublishedGetRequest($featured_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -556,11 +630,12 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\Article
      */
     public function blogPostSlugSlugGet($slug)
     {
-        $this->blogPostSlugSlugGetWithHttpInfo($slug);
+        list($response) = $this->blogPostSlugSlugGetWithHttpInfo($slug);
+        return $response;
     }
 
     /**
@@ -570,11 +645,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Article, HTTP status code, HTTP response headers (array of strings)
      */
     public function blogPostSlugSlugGetWithHttpInfo($slug)
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Article';
         $request = $this->blogPostSlugSlugGetRequest($slug);
 
         try {
@@ -605,10 +680,32 @@ class DefaultApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\Article',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -646,14 +743,28 @@ class DefaultApi
      */
     public function blogPostSlugSlugGetAsyncWithHttpInfo($slug)
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Article';
         $request = $this->blogPostSlugSlugGetRequest($slug);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -776,11 +887,12 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\Jobs
      */
     public function jobListingGet()
     {
-        $this->jobListingGetWithHttpInfo();
+        list($response) = $this->jobListingGetWithHttpInfo();
+        return $response;
     }
 
     /**
@@ -789,11 +901,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Jobs, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobListingGetWithHttpInfo()
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Jobs';
         $request = $this->jobListingGetRequest();
 
         try {
@@ -824,10 +936,32 @@ class DefaultApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\Jobs',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -863,14 +997,28 @@ class DefaultApi
      */
     public function jobListingGetAsyncWithHttpInfo()
     {
-        $returnType = '';
+        $returnType = '\Swagger\Client\Model\Jobs';
         $request = $this->jobListingGetRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
