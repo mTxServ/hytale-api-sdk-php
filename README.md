@@ -53,7 +53,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\DefaultApi(
+$apiInstance = new Swagger\Client\Api\ArticlesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -64,7 +64,7 @@ try {
     $result = $apiInstance->blogPostPublishedGet($featured_only);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ArticlesApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -75,10 +75,16 @@ All URIs are relative to *http://hytale.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**blogPostArchiveYearMonthGet**](docs/Api/DefaultApi.md#blogpostarchiveyearmonthget) | **GET** /blog/post/archive/{year}/{month}/ | 
-*DefaultApi* | [**blogPostPublishedGet**](docs/Api/DefaultApi.md#blogpostpublishedget) | **GET** /blog/post/published | 
-*DefaultApi* | [**blogPostSlugSlugGet**](docs/Api/DefaultApi.md#blogpostslugslugget) | **GET** /blog/post/slug/{slug} | 
-*DefaultApi* | [**jobListingGet**](docs/Api/DefaultApi.md#joblistingget) | **GET** /job/listing | 
+*ArticlesApi* | [**blogPostArchiveYearMonthGet**](docs/Api/ArticlesApi.md#blogpostarchiveyearmonthget) | **GET** /blog/post/archive/{year}/{month}/ | 
+*ArticlesApi* | [**blogPostPublishedGet**](docs/Api/ArticlesApi.md#blogpostpublishedget) | **GET** /blog/post/published | 
+*ArticlesApi* | [**blogPostSlugSlugGet**](docs/Api/ArticlesApi.md#blogpostslugslugget) | **GET** /blog/post/slug/{slug} | 
+*JobsApi* | [**jobListingGet**](docs/Api/JobsApi.md#joblistingget) | **GET** /job/listing | 
+
+## Documentation For Models
+
+ - [Article](docs/Model/Article.md)
+ - [CoverImage](docs/Model/CoverImage.md)
+ - [Job](docs/Model/Job.md)
 
 
 ## Documentation For Authorization

@@ -1,13 +1,12 @@
-# Swagger\Client\DefaultApi
+# Swagger\Client\ArticlesApi
 
 All URIs are relative to *http://hytale.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**blogPostArchiveYearMonthGet**](DefaultApi.md#blogPostArchiveYearMonthGet) | **GET** /blog/post/archive/{year}/{month}/ | 
-[**blogPostPublishedGet**](DefaultApi.md#blogPostPublishedGet) | **GET** /blog/post/published | 
-[**blogPostSlugSlugGet**](DefaultApi.md#blogPostSlugSlugGet) | **GET** /blog/post/slug/{slug} | 
-[**jobListingGet**](DefaultApi.md#jobListingGet) | **GET** /job/listing | 
+[**blogPostArchiveYearMonthGet**](ArticlesApi.md#blogPostArchiveYearMonthGet) | **GET** /blog/post/archive/{year}/{month}/ | 
+[**blogPostPublishedGet**](ArticlesApi.md#blogPostPublishedGet) | **GET** /blog/post/published | 
+[**blogPostSlugSlugGet**](ArticlesApi.md#blogPostSlugSlugGet) | **GET** /blog/post/slug/{slug} | 
 
 
 # **blogPostArchiveYearMonthGet**
@@ -22,19 +21,19 @@ Get list of articles published on a specific month of an year
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\DefaultApi(
+$apiInstance = new Swagger\Client\Api\ArticlesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$year = 56; // int | Year (ex: 2019)
-$month = 56; // int | Month (ex: 01)
+$year = 2019; // int | Year (ex: 2019)
+$month = 01; // int | Month (ex: 01)
 
 try {
     $result = $apiInstance->blogPostArchiveYearMonthGet($year, $month);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->blogPostArchiveYearMonthGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ArticlesApi->blogPostArchiveYearMonthGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -73,7 +72,7 @@ Get list of articles published
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\DefaultApi(
+$apiInstance = new Swagger\Client\Api\ArticlesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -84,7 +83,7 @@ try {
     $result = $apiInstance->blogPostPublishedGet($featured_only);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ArticlesApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -122,7 +121,7 @@ Get list of articles published
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\DefaultApi(
+$apiInstance = new Swagger\Client\Api\ArticlesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -133,7 +132,7 @@ try {
     $result = $apiInstance->blogPostSlugSlugGet($slug);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->blogPostSlugSlugGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ArticlesApi->blogPostSlugSlugGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -147,51 +146,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Swagger\Client\Model\Article**](../Model/Article.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **jobListingGet**
-> \Swagger\Client\Model\Job[] jobListingGet()
-
-
-
-Get list of jobs
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$apiInstance = new Swagger\Client\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-
-try {
-    $result = $apiInstance->jobListingGet();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->jobListingGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\Swagger\Client\Model\Job[]**](../Model/Job.md)
 
 ### Authorization
 

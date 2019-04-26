@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApiTest
+ * ArticlesApiTest
  * PHP version 5
  *
  * @category Class
@@ -33,14 +33,14 @@ use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * DefaultApiTest Class Doc Comment
+ * ArticlesApiTest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DefaultApiTest extends \PHPUnit_Framework_TestCase
+class ArticlesApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -98,16 +98,6 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testBlogPostSlugSlugGet()
-    {
-    }
-
-    /**
-     * Test case for jobListingGet
-     *
-     * .
-     *
-     */
-    public function testJobListingGet()
     {
     }
 }
