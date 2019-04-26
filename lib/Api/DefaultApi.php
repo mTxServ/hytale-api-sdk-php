@@ -95,7 +95,7 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Articles
+     * @return \Swagger\Client\Model\Article[]
      */
     public function blogPostArchiveYearMonthGet($year, $month)
     {
@@ -111,11 +111,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Articles, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Article[], HTTP status code, HTTP response headers (array of strings)
      */
     public function blogPostArchiveYearMonthGetWithHttpInfo($year, $month)
     {
-        $returnType = '\Swagger\Client\Model\Articles';
+        $returnType = '\Swagger\Client\Model\Article[]';
         $request = $this->blogPostArchiveYearMonthGetRequest($year, $month);
 
         try {
@@ -167,7 +167,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Articles',
+                        '\Swagger\Client\Model\Article[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -211,7 +211,7 @@ class DefaultApi
      */
     public function blogPostArchiveYearMonthGetAsyncWithHttpInfo($year, $month)
     {
-        $returnType = '\Swagger\Client\Model\Articles';
+        $returnType = '\Swagger\Client\Model\Article[]';
         $request = $this->blogPostArchiveYearMonthGetRequest($year, $month);
 
         return $this->client
@@ -382,7 +382,7 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Articles
+     * @return \Swagger\Client\Model\Article[]
      */
     public function blogPostPublishedGet($featured_only = null)
     {
@@ -397,11 +397,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Articles, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Article[], HTTP status code, HTTP response headers (array of strings)
      */
     public function blogPostPublishedGetWithHttpInfo($featured_only = null)
     {
-        $returnType = '\Swagger\Client\Model\Articles';
+        $returnType = '\Swagger\Client\Model\Article[]';
         $request = $this->blogPostPublishedGetRequest($featured_only);
 
         try {
@@ -453,7 +453,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Articles',
+                        '\Swagger\Client\Model\Article[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -495,7 +495,7 @@ class DefaultApi
      */
     public function blogPostPublishedGetAsyncWithHttpInfo($featured_only = null)
     {
-        $returnType = '\Swagger\Client\Model\Articles';
+        $returnType = '\Swagger\Client\Model\Article[]';
         $request = $this->blogPostPublishedGetRequest($featured_only);
 
         return $this->client
@@ -887,7 +887,7 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Jobs
+     * @return \Swagger\Client\Model\Job[]
      */
     public function jobListingGet()
     {
@@ -901,11 +901,11 @@ class DefaultApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Jobs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      */
     public function jobListingGetWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\Model\Jobs';
+        $returnType = '\Swagger\Client\Model\Job[]';
         $request = $this->jobListingGetRequest();
 
         try {
@@ -957,7 +957,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Jobs',
+                        '\Swagger\Client\Model\Job[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -997,7 +997,7 @@ class DefaultApi
      */
     public function jobListingGetAsyncWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\Model\Jobs';
+        $returnType = '\Swagger\Client\Model\Job[]';
         $request = $this->jobListingGetRequest();
 
         return $this->client

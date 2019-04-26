@@ -58,15 +58,14 @@ $apiInstance = new Swagger\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$year = 56; // int | Year (ex: 2019)
-$month = 56; // int | Month (ex: 01)
+$featured_only = true; // bool | 
 
 try {
-    $apiInstance->blogPostArchiveYearMonthGet($year, $month);
+    $result = $apiInstance->blogPostPublishedGet($featured_only);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->blogPostArchiveYearMonthGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
 }
-
 ?>
 ```
 

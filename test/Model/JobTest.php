@@ -110,25 +110,4 @@ class JobTest extends \PHPUnit_Framework_TestCase
     public function testPropertyEmploymentType()
     {
     }
-
-    /**
-     * Test attribute "job_location"
-     */
-    public function testPropertyJobLocation()
-    {
-    }
-
-    /**
-     * Test attribute "hiring_organization"
-     */
-    public function testPropertyHiringOrganization()
-    {
-    }
-
-    /**
-     * Test attribute "identifier"
-     */
-    public function testPropertyIdentifier()
-    {
-    }
 }

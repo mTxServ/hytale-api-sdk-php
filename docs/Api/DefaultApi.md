@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **blogPostArchiveYearMonthGet**
-> \Swagger\Client\Model\Articles blogPostArchiveYearMonthGet($year, $month)
+> \Swagger\Client\Model\Article[] blogPostArchiveYearMonthGet($year, $month)
 
 
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Articles**](../Model/Articles.md)
+[**\Swagger\Client\Model\Article[]**](../Model/Article.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **blogPostPublishedGet**
-> \Swagger\Client\Model\Articles blogPostPublishedGet($featured_only)
+> \Swagger\Client\Model\Article[] blogPostPublishedGet($featured_only)
 
 
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Articles**](../Model/Articles.md)
+[**\Swagger\Client\Model\Article[]**](../Model/Article.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **jobListingGet**
-> \Swagger\Client\Model\Jobs jobListingGet()
+> \Swagger\Client\Model\Job[] jobListingGet()
 
 
 
@@ -191,7 +191,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\Model\Jobs**](../Model/Jobs.md)
+[**\Swagger\Client\Model\Job[]**](../Model/Job.md)
 
 ### Authorization
 

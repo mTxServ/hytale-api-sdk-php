@@ -61,10 +61,7 @@ class Job implements ModelInterface, ArrayAccess
         'description' => 'string',
         'date_posted' => 'string',
         'url' => 'string',
-        'employment_type' => 'string',
-        'job_location' => 'null[]',
-        'hiring_organization' => 'null[]',
-        'identifier' => 'null[]'
+        'employment_type' => 'string'
     ];
 
     /**
@@ -77,10 +74,7 @@ class Job implements ModelInterface, ArrayAccess
         'description' => null,
         'date_posted' => null,
         'url' => null,
-        'employment_type' => null,
-        'job_location' => null,
-        'hiring_organization' => null,
-        'identifier' => null
+        'employment_type' => null
     ];
 
     /**
@@ -114,10 +108,7 @@ class Job implements ModelInterface, ArrayAccess
         'description' => 'description',
         'date_posted' => 'datePosted',
         'url' => 'url',
-        'employment_type' => 'employmentType',
-        'job_location' => 'jobLocation',
-        'hiring_organization' => 'hiringOrganization',
-        'identifier' => 'identifier'
+        'employment_type' => 'employmentType'
     ];
 
     /**
@@ -130,10 +121,7 @@ class Job implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'date_posted' => 'setDatePosted',
         'url' => 'setUrl',
-        'employment_type' => 'setEmploymentType',
-        'job_location' => 'setJobLocation',
-        'hiring_organization' => 'setHiringOrganization',
-        'identifier' => 'setIdentifier'
+        'employment_type' => 'setEmploymentType'
     ];
 
     /**
@@ -146,10 +134,7 @@ class Job implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'date_posted' => 'getDatePosted',
         'url' => 'getUrl',
-        'employment_type' => 'getEmploymentType',
-        'job_location' => 'getJobLocation',
-        'hiring_organization' => 'getHiringOrganization',
-        'identifier' => 'getIdentifier'
+        'employment_type' => 'getEmploymentType'
     ];
 
     /**
@@ -217,9 +202,6 @@ class Job implements ModelInterface, ArrayAccess
         $this->container['date_posted'] = isset($data['date_posted']) ? $data['date_posted'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['employment_type'] = isset($data['employment_type']) ? $data['employment_type'] : null;
-        $this->container['job_location'] = isset($data['job_location']) ? $data['job_location'] : null;
-        $this->container['hiring_organization'] = isset($data['hiring_organization']) ? $data['hiring_organization'] : null;
-        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
     }
 
     /**
@@ -362,78 +344,6 @@ class Job implements ModelInterface, ArrayAccess
     public function setEmploymentType($employment_type)
     {
         $this->container['employment_type'] = $employment_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets job_location
-     *
-     * @return null[]
-     */
-    public function getJobLocation()
-    {
-        return $this->container['job_location'];
-    }
-
-    /**
-     * Sets job_location
-     *
-     * @param null[] $job_location job_location
-     *
-     * @return $this
-     */
-    public function setJobLocation($job_location)
-    {
-        $this->container['job_location'] = $job_location;
-
-        return $this;
-    }
-
-    /**
-     * Gets hiring_organization
-     *
-     * @return null[]
-     */
-    public function getHiringOrganization()
-    {
-        return $this->container['hiring_organization'];
-    }
-
-    /**
-     * Sets hiring_organization
-     *
-     * @param null[] $hiring_organization hiring_organization
-     *
-     * @return $this
-     */
-    public function setHiringOrganization($hiring_organization)
-    {
-        $this->container['hiring_organization'] = $hiring_organization;
-
-        return $this;
-    }
-
-    /**
-     * Gets identifier
-     *
-     * @return null[]
-     */
-    public function getIdentifier()
-    {
-        return $this->container['identifier'];
-    }
-
-    /**
-     * Sets identifier
-     *
-     * @param null[] $identifier identifier
-     *
-     * @return $this
-     */
-    public function setIdentifier($identifier)
-    {
-        $this->container['identifier'] = $identifier;
 
         return $this;
     }
