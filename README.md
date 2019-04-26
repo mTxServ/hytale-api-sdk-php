@@ -5,6 +5,8 @@ With this SDK, you can consume the official Hytale API in PHP.
 
 ![Travis (.org)](https://img.shields.io/travis/mTxServ/hytale-api-sdk-php.svg)
 
+API Documentation: https://app.swaggerhub.com/apis/sdieunidou/hytale-api/1.0
+
 ## Requirements
 
 PHP 5.5 and later
