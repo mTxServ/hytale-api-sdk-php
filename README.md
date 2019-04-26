@@ -21,7 +21,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
     }
   ],
   "require": {
-    "/": "*@dev"
+    "hytale-game/hytale-api-sdk-php": "*@dev"
   }
 }
 ```
