@@ -3,6 +3,8 @@
 Created by [mTxServ](https://mtxserv.com) and [Hytale.game](https://hytale.game).
 With this SDK, you can consume the official Hytale API in PHP.
 
+![Travis (.org)](https://img.shields.io/travis/mTxServ/hytale-api-sdk-php.svg)
+
 ## Requirements
 
 PHP 5.5 and later
@@ -13,17 +15,7 @@ PHP 5.5 and later
 To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
 
 ```
-{
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/mTxServ/hytale-api-sdk-php.git"
-    }
-  ],
-  "require": {
-    "hytale-game/hytale-api-sdk-php": "*@dev"
-  }
-}
+composer require hytale-game/hytale-api-sdk-php
 ```
 
 Then run `composer install`
@@ -61,10 +53,10 @@ $apiInstance = new Swagger\Client\Api\ArticlesApi(
 $featured_only = true; // bool | 
 
 try {
-    $result = $apiInstance->blogPostPublishedGet($featured_only);
+    $result = $apiInstance->getArticles($featured_only);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ArticlesApi->blogPostPublishedGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ArticlesApi->getArticles: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -75,10 +67,11 @@ All URIs are relative to *http://hytale.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ArticlesApi* | [**blogPostArchiveYearMonthGet**](docs/Api/ArticlesApi.md#blogpostarchiveyearmonthget) | **GET** /blog/post/archive/{year}/{month}/ | 
-*ArticlesApi* | [**blogPostPublishedGet**](docs/Api/ArticlesApi.md#blogpostpublishedget) | **GET** /blog/post/published | 
-*ArticlesApi* | [**blogPostSlugSlugGet**](docs/Api/ArticlesApi.md#blogpostslugslugget) | **GET** /blog/post/slug/{slug} | 
-*JobsApi* | [**jobListingGet**](docs/Api/JobsApi.md#joblistingget) | **GET** /job/listing | 
+*ArticlesApi* | [**getArticleBySlug**](docs/Api/ArticlesApi.md#getarticlebyslug) | **GET** /blog/post/slug/{slug} | 
+*ArticlesApi* | [**getArticles**](docs/Api/ArticlesApi.md#getarticles) | **GET** /blog/post/published | 
+*ArticlesApi* | [**getArticlesOfMonthAndYear**](docs/Api/ArticlesApi.md#getarticlesofmonthandyear) | **GET** /blog/post/archive/{year}/{month}/ | 
+*JobsApi* | [**getJobs**](docs/Api/JobsApi.md#getjobs) | **GET** /job/listing | 
+
 
 ## Documentation For Models
 

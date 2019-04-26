@@ -4,11 +4,11 @@ All URIs are relative to *http://hytale.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**jobListingGet**](JobsApi.md#jobListingGet) | **GET** /job/listing | 
+[**getJobs**](JobsApi.md#getJobs) | **GET** /job/listing | 
 
 
-# **jobListingGet**
-> \Swagger\Client\Model\Job[] jobListingGet()
+# **getJobs**
+> \Swagger\Client\Model\Job[] getJobs()
 
 
 
@@ -26,10 +26,10 @@ $apiInstance = new Swagger\Client\Api\JobsApi(
 );
 
 try {
-    $result = $apiInstance->jobListingGet();
+    $result = $apiInstance->getJobs();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling JobsApi->jobListingGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling JobsApi->getJobs: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

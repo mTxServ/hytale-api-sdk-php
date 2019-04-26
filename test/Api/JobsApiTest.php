@@ -72,12 +72,12 @@ class JobsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for jobListingGet
+     * Test case for getJobs
      *
      * .
      *
      */
-    public function testJobListingGet()
+    public function testGetJobs()
     {
     }
 }

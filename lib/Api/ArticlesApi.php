@@ -88,35 +88,33 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostArchiveYearMonthGet
+     * Operation getArticleBySlug
      *
-     * @param  int $year Year (ex: 2019) (required)
-     * @param  int $month Month (ex: 01) (required)
+     * @param  string $slug Slug of article (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Article[]
+     * @return \Swagger\Client\Model\Article
      */
-    public function blogPostArchiveYearMonthGet($year, $month)
+    public function getArticleBySlug($slug)
     {
-        list($response) = $this->blogPostArchiveYearMonthGetWithHttpInfo($year, $month);
+        list($response) = $this->getArticleBySlugWithHttpInfo($slug);
         return $response;
     }
 
     /**
-     * Operation blogPostArchiveYearMonthGetWithHttpInfo
+     * Operation getArticleBySlugWithHttpInfo
      *
-     * @param  int $year Year (ex: 2019) (required)
-     * @param  int $month Month (ex: 01) (required)
+     * @param  string $slug Slug of article (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Article[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Article, HTTP status code, HTTP response headers (array of strings)
      */
-    public function blogPostArchiveYearMonthGetWithHttpInfo($year, $month)
+    public function getArticleBySlugWithHttpInfo($slug)
     {
-        $returnType = '\Swagger\Client\Model\Article[]';
-        $request = $this->blogPostArchiveYearMonthGetRequest($year, $month);
+        $returnType = '\Swagger\Client\Model\Article';
+        $request = $this->getArticleBySlugRequest($slug);
 
         try {
             $options = $this->createHttpClientOption();
@@ -167,7 +165,7 @@ class ArticlesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Article[]',
+                        '\Swagger\Client\Model\Article',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -178,19 +176,18 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostArchiveYearMonthGetAsync
+     * Operation getArticleBySlugAsync
      *
      * 
      *
-     * @param  int $year Year (ex: 2019) (required)
-     * @param  int $month Month (ex: 01) (required)
+     * @param  string $slug Slug of article (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blogPostArchiveYearMonthGetAsync($year, $month)
+    public function getArticleBySlugAsync($slug)
     {
-        return $this->blogPostArchiveYearMonthGetAsyncWithHttpInfo($year, $month)
+        return $this->getArticleBySlugAsyncWithHttpInfo($slug)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -199,20 +196,19 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostArchiveYearMonthGetAsyncWithHttpInfo
+     * Operation getArticleBySlugAsyncWithHttpInfo
      *
      * 
      *
-     * @param  int $year Year (ex: 2019) (required)
-     * @param  int $month Month (ex: 01) (required)
+     * @param  string $slug Slug of article (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blogPostArchiveYearMonthGetAsyncWithHttpInfo($year, $month)
+    public function getArticleBySlugAsyncWithHttpInfo($slug)
     {
-        $returnType = '\Swagger\Client\Model\Article[]';
-        $request = $this->blogPostArchiveYearMonthGetRequest($year, $month);
+        $returnType = '\Swagger\Client\Model\Article';
+        $request = $this->getArticleBySlugRequest($slug);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -252,41 +248,23 @@ class ArticlesApi
     }
 
     /**
-     * Create request for operation 'blogPostArchiveYearMonthGet'
+     * Create request for operation 'getArticleBySlug'
      *
-     * @param  int $year Year (ex: 2019) (required)
-     * @param  int $month Month (ex: 01) (required)
+     * @param  string $slug Slug of article (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function blogPostArchiveYearMonthGetRequest($year, $month)
+    protected function getArticleBySlugRequest($slug)
     {
-        // verify the required parameter 'year' is set
-        if ($year === null || (is_array($year) && count($year) === 0)) {
+        // verify the required parameter 'slug' is set
+        if ($slug === null || (is_array($slug) && count($slug) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $year when calling blogPostArchiveYearMonthGet'
+                'Missing the required parameter $slug when calling getArticleBySlug'
             );
         }
-        if ($year < 2018) {
-            throw new \InvalidArgumentException('invalid value for "$year" when calling ArticlesApi.blogPostArchiveYearMonthGet, must be bigger than or equal to 2018.');
-        }
 
-        // verify the required parameter 'month' is set
-        if ($month === null || (is_array($month) && count($month) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $month when calling blogPostArchiveYearMonthGet'
-            );
-        }
-        if ($month > 12) {
-            throw new \InvalidArgumentException('invalid value for "$month" when calling ArticlesApi.blogPostArchiveYearMonthGet, must be smaller than or equal to 12.');
-        }
-        if ($month < 1) {
-            throw new \InvalidArgumentException('invalid value for "$month" when calling ArticlesApi.blogPostArchiveYearMonthGet, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/blog/post/archive/{year}/{month}/';
+        $resourcePath = '/blog/post/slug/{slug}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -295,18 +273,10 @@ class ArticlesApi
 
 
         // path params
-        if ($year !== null) {
+        if ($slug !== null) {
             $resourcePath = str_replace(
-                '{' . 'year' . '}',
-                ObjectSerializer::toPathValue($year),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($month !== null) {
-            $resourcePath = str_replace(
-                '{' . 'month' . '}',
-                ObjectSerializer::toPathValue($month),
+                '{' . 'slug' . '}',
+                ObjectSerializer::toPathValue($slug),
                 $resourcePath
             );
         }
@@ -376,7 +346,7 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostPublishedGet
+     * Operation getArticles
      *
      * @param  bool $featured_only featured_only (optional)
      *
@@ -384,14 +354,14 @@ class ArticlesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Article[]
      */
-    public function blogPostPublishedGet($featured_only = null)
+    public function getArticles($featured_only = null)
     {
-        list($response) = $this->blogPostPublishedGetWithHttpInfo($featured_only);
+        list($response) = $this->getArticlesWithHttpInfo($featured_only);
         return $response;
     }
 
     /**
-     * Operation blogPostPublishedGetWithHttpInfo
+     * Operation getArticlesWithHttpInfo
      *
      * @param  bool $featured_only (optional)
      *
@@ -399,10 +369,10 @@ class ArticlesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Article[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function blogPostPublishedGetWithHttpInfo($featured_only = null)
+    public function getArticlesWithHttpInfo($featured_only = null)
     {
         $returnType = '\Swagger\Client\Model\Article[]';
-        $request = $this->blogPostPublishedGetRequest($featured_only);
+        $request = $this->getArticlesRequest($featured_only);
 
         try {
             $options = $this->createHttpClientOption();
@@ -464,7 +434,7 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostPublishedGetAsync
+     * Operation getArticlesAsync
      *
      * 
      *
@@ -473,9 +443,9 @@ class ArticlesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blogPostPublishedGetAsync($featured_only = null)
+    public function getArticlesAsync($featured_only = null)
     {
-        return $this->blogPostPublishedGetAsyncWithHttpInfo($featured_only)
+        return $this->getArticlesAsyncWithHttpInfo($featured_only)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -484,7 +454,7 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostPublishedGetAsyncWithHttpInfo
+     * Operation getArticlesAsyncWithHttpInfo
      *
      * 
      *
@@ -493,10 +463,10 @@ class ArticlesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blogPostPublishedGetAsyncWithHttpInfo($featured_only = null)
+    public function getArticlesAsyncWithHttpInfo($featured_only = null)
     {
         $returnType = '\Swagger\Client\Model\Article[]';
-        $request = $this->blogPostPublishedGetRequest($featured_only);
+        $request = $this->getArticlesRequest($featured_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -536,14 +506,14 @@ class ArticlesApi
     }
 
     /**
-     * Create request for operation 'blogPostPublishedGet'
+     * Create request for operation 'getArticles'
      *
      * @param  bool $featured_only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function blogPostPublishedGetRequest($featured_only = null)
+    protected function getArticlesRequest($featured_only = null)
     {
 
         $resourcePath = '/blog/post/published';
@@ -624,33 +594,35 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostSlugSlugGet
+     * Operation getArticlesOfMonthAndYear
      *
-     * @param  string $slug Slug of article (required)
+     * @param  int $year Year (ex: 2019) (required)
+     * @param  int $month Month (ex: 01) (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Article
+     * @return \Swagger\Client\Model\Article[]
      */
-    public function blogPostSlugSlugGet($slug)
+    public function getArticlesOfMonthAndYear($year, $month)
     {
-        list($response) = $this->blogPostSlugSlugGetWithHttpInfo($slug);
+        list($response) = $this->getArticlesOfMonthAndYearWithHttpInfo($year, $month);
         return $response;
     }
 
     /**
-     * Operation blogPostSlugSlugGetWithHttpInfo
+     * Operation getArticlesOfMonthAndYearWithHttpInfo
      *
-     * @param  string $slug Slug of article (required)
+     * @param  int $year Year (ex: 2019) (required)
+     * @param  int $month Month (ex: 01) (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Article, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Article[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function blogPostSlugSlugGetWithHttpInfo($slug)
+    public function getArticlesOfMonthAndYearWithHttpInfo($year, $month)
     {
-        $returnType = '\Swagger\Client\Model\Article';
-        $request = $this->blogPostSlugSlugGetRequest($slug);
+        $returnType = '\Swagger\Client\Model\Article[]';
+        $request = $this->getArticlesOfMonthAndYearRequest($year, $month);
 
         try {
             $options = $this->createHttpClientOption();
@@ -701,7 +673,7 @@ class ArticlesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Article',
+                        '\Swagger\Client\Model\Article[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -712,18 +684,19 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostSlugSlugGetAsync
+     * Operation getArticlesOfMonthAndYearAsync
      *
      * 
      *
-     * @param  string $slug Slug of article (required)
+     * @param  int $year Year (ex: 2019) (required)
+     * @param  int $month Month (ex: 01) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blogPostSlugSlugGetAsync($slug)
+    public function getArticlesOfMonthAndYearAsync($year, $month)
     {
-        return $this->blogPostSlugSlugGetAsyncWithHttpInfo($slug)
+        return $this->getArticlesOfMonthAndYearAsyncWithHttpInfo($year, $month)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -732,19 +705,20 @@ class ArticlesApi
     }
 
     /**
-     * Operation blogPostSlugSlugGetAsyncWithHttpInfo
+     * Operation getArticlesOfMonthAndYearAsyncWithHttpInfo
      *
      * 
      *
-     * @param  string $slug Slug of article (required)
+     * @param  int $year Year (ex: 2019) (required)
+     * @param  int $month Month (ex: 01) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blogPostSlugSlugGetAsyncWithHttpInfo($slug)
+    public function getArticlesOfMonthAndYearAsyncWithHttpInfo($year, $month)
     {
-        $returnType = '\Swagger\Client\Model\Article';
-        $request = $this->blogPostSlugSlugGetRequest($slug);
+        $returnType = '\Swagger\Client\Model\Article[]';
+        $request = $this->getArticlesOfMonthAndYearRequest($year, $month);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -784,23 +758,41 @@ class ArticlesApi
     }
 
     /**
-     * Create request for operation 'blogPostSlugSlugGet'
+     * Create request for operation 'getArticlesOfMonthAndYear'
      *
-     * @param  string $slug Slug of article (required)
+     * @param  int $year Year (ex: 2019) (required)
+     * @param  int $month Month (ex: 01) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function blogPostSlugSlugGetRequest($slug)
+    protected function getArticlesOfMonthAndYearRequest($year, $month)
     {
-        // verify the required parameter 'slug' is set
-        if ($slug === null || (is_array($slug) && count($slug) === 0)) {
+        // verify the required parameter 'year' is set
+        if ($year === null || (is_array($year) && count($year) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $slug when calling blogPostSlugSlugGet'
+                'Missing the required parameter $year when calling getArticlesOfMonthAndYear'
             );
         }
+        if ($year < 2018) {
+            throw new \InvalidArgumentException('invalid value for "$year" when calling ArticlesApi.getArticlesOfMonthAndYear, must be bigger than or equal to 2018.');
+        }
 
-        $resourcePath = '/blog/post/slug/{slug}';
+        // verify the required parameter 'month' is set
+        if ($month === null || (is_array($month) && count($month) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $month when calling getArticlesOfMonthAndYear'
+            );
+        }
+        if ($month > 12) {
+            throw new \InvalidArgumentException('invalid value for "$month" when calling ArticlesApi.getArticlesOfMonthAndYear, must be smaller than or equal to 12.');
+        }
+        if ($month < 1) {
+            throw new \InvalidArgumentException('invalid value for "$month" when calling ArticlesApi.getArticlesOfMonthAndYear, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/blog/post/archive/{year}/{month}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -809,10 +801,18 @@ class ArticlesApi
 
 
         // path params
-        if ($slug !== null) {
+        if ($year !== null) {
             $resourcePath = str_replace(
-                '{' . 'slug' . '}',
-                ObjectSerializer::toPathValue($slug),
+                '{' . 'year' . '}',
+                ObjectSerializer::toPathValue($year),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($month !== null) {
+            $resourcePath = str_replace(
+                '{' . 'month' . '}',
+                ObjectSerializer::toPathValue($month),
                 $resourcePath
             );
         }

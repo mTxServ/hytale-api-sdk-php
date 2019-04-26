@@ -72,32 +72,32 @@ class ArticlesApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for blogPostArchiveYearMonthGet
+     * Test case for getArticleBySlug
      *
      * .
      *
      */
-    public function testBlogPostArchiveYearMonthGet()
+    public function testGetArticleBySlug()
     {
     }
 
     /**
-     * Test case for blogPostPublishedGet
+     * Test case for getArticles
      *
      * .
      *
      */
-    public function testBlogPostPublishedGet()
+    public function testGetArticles()
     {
     }
 
     /**
-     * Test case for blogPostSlugSlugGet
+     * Test case for getArticlesOfMonthAndYear
      *
      * .
      *
      */
-    public function testBlogPostSlugSlugGet()
+    public function testGetArticlesOfMonthAndYear()
     {
     }
 }

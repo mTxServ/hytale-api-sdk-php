@@ -88,31 +88,31 @@ class JobsApi
     }
 
     /**
-     * Operation jobListingGet
+     * Operation getJobs
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Job[]
      */
-    public function jobListingGet()
+    public function getJobs()
     {
-        list($response) = $this->jobListingGetWithHttpInfo();
+        list($response) = $this->getJobsWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation jobListingGetWithHttpInfo
+     * Operation getJobsWithHttpInfo
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobListingGetWithHttpInfo()
+    public function getJobsWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\Job[]';
-        $request = $this->jobListingGetRequest();
+        $request = $this->getJobsRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -174,7 +174,7 @@ class JobsApi
     }
 
     /**
-     * Operation jobListingGetAsync
+     * Operation getJobsAsync
      *
      * 
      *
@@ -182,9 +182,9 @@ class JobsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobListingGetAsync()
+    public function getJobsAsync()
     {
-        return $this->jobListingGetAsyncWithHttpInfo()
+        return $this->getJobsAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -193,7 +193,7 @@ class JobsApi
     }
 
     /**
-     * Operation jobListingGetAsyncWithHttpInfo
+     * Operation getJobsAsyncWithHttpInfo
      *
      * 
      *
@@ -201,10 +201,10 @@ class JobsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobListingGetAsyncWithHttpInfo()
+    public function getJobsAsyncWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\Job[]';
-        $request = $this->jobListingGetRequest();
+        $request = $this->getJobsRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -244,13 +244,13 @@ class JobsApi
     }
 
     /**
-     * Create request for operation 'jobListingGet'
+     * Create request for operation 'getJobs'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobListingGetRequest()
+    protected function getJobsRequest()
     {
 
         $resourcePath = '/job/listing';
